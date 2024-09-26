@@ -1,1 +1,16 @@
-<p>character-preview works!</p>
+<div class="character-preview">
+    <h2>Charakter Vorschau</h2>
+    @if (character()) {
+      <div class="preview-container">
+        <div class="character-image" [style.backgroundColor]="character().bodyColor">
+          <!-- Hier können wir später SVG-Elemente für den Charakter hinzufügen -->
+        </div>
+        <div class="character-info">
+          <p>Name: {{ character().name }}</p>
+          <p>Klasse: {{ character().class }}</p>
+        </div>
+      </div>
+    } @else {
+      <p>Lade Charakter...</p>
+    }
+  </div>

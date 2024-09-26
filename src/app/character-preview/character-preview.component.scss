@@ -1,0 +1,30 @@
+.character-preview {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+  
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  
+    .preview-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+  
+    .character-image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+    }
+  
+    .character-info {
+      p {
+        margin: 10px 0;
+      }
+    }
+  }
