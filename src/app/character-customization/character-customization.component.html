@@ -1,1 +1,40 @@
-<p>character-customization works!</p>
+<div class="character-customization">
+    <h2>Charakter anpassen</h2>
+    
+    @if (character()) {
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input 
+          id="name" 
+          type="text" 
+          [ngModel]="character().name" 
+          (ngModelChange)="updateName($event)"
+        >
+      </div>
+  
+      <div class="form-group">
+        <label for="class">Klasse:</label>
+        <select 
+          id="class" 
+          [ngModel]="character().class" 
+          (ngModelChange)="updateClass($event)"
+        >
+          @for (class of characterClasses; track class) {
+            <option [value]="class">{{ class }}</option>
+          }
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="bodyColor">Körperfarbe:</label>
+        <input 
+          id="bodyColor" 
+          type="color" 
+          [ngModel]="character().bodyColor" 
+          (ngModelChange)="updateBodyColor($event)"
+        >
+      </div>
+    } @else {
+      <p>Lade Charakter...</p>
+    }
+  </div>

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 import { CharacterPreviewComponent } from './character-preview/character-preview.component';
+import { CharacterCustomizationComponent } from './character-customization/character-customization.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, CharacterPreviewComponent],
+  imports: [CharacterPreviewComponent, CharacterCustomizationComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
