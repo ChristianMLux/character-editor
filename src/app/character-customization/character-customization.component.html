@@ -26,13 +26,49 @@
       </div>
   
       <div class="form-group">
-        <label for="bodyColor">Körperfarbe:</label>
-        <input 
-          id="bodyColor" 
-          type="color" 
-          [ngModel]="character().bodyColor" 
-          (ngModelChange)="updateBodyColor($event)"
+        <h3>Körperteile anpassen:</h3>
+        @for (part of bodyParts; track part) {
+          <div>
+            <label [for]="part + 'Color'">{{ part | uppercase }} Farbe:</label>
+            <input 
+              [id]="part + 'Color'" 
+              type="color" 
+              [ngModel]="getColor(part)" 
+              (ngModelChange)="updateColor(part, $event)"
+            >
+          </div>
+        }
+      </div>
+  
+      <div class="form-group">
+        <h3>Statistiken (Verbleibende Punkte: {{ remainingPoints() }}):</h3>
+        @for (stat of stats; track stat) {
+          <div>
+            <label [for]="stat">{{ stat }}:</label>
+            <input 
+              [id]="stat" 
+              type="number" 
+              [ngModel]="character().stats[stat]" 
+              (ngModelChange)="updateStat(stat, $event)"
+              min="10"
+              max="15"
+            >
+          </div>
+        }
+      </div>
+  
+      <div class="form-group">
+        <label for="weapon">Waffe:</label>
+        <select 
+          id="weapon" 
+          [ngModel]="character().weapon" 
+          (ngModelChange)="updateWeapon($event)"
         >
+          <option value="">Wähle eine Waffe</option>
+          @for (weapon of availableWeapons; track weapon) {
+            <option [value]="weapon">{{ weapon }}</option>
+          }
+        </select>
       </div>
     } @else {
       <p>Lade Charakter...</p>

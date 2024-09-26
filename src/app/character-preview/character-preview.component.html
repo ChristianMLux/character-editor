@@ -1,13 +1,27 @@
 <div class="character-preview">
     <h2>Charakter Vorschau</h2>
+  
     @if (character()) {
       <div class="preview-container">
-        <div class="character-image" [style.backgroundColor]="character().bodyColor">
-          <!-- Hier können wir später SVG-Elemente für den Charakter hinzufügen -->
+        <div class="character-image">
+          <div class="head" [style.backgroundColor]="character().headColor"></div>
+          <div class="body" [style.backgroundColor]="character().bodyColor"></div>
+          <div class="arms" [style.backgroundColor]="character().armsColor"></div>
+          <div class="legs" [style.backgroundColor]="character().legsColor"></div>
+          @if (character().weapon) {
+            <div class="weapon">{{ character().weapon }}</div>
+          }
         </div>
+  
         <div class="character-info">
-          <p>Name: {{ character().name }}</p>
+          <h3>{{ character().name }}</h3>
           <p>Klasse: {{ character().class }}</p>
+          <h4>Statistiken:</h4>
+          <ul>
+            @for (stat of stats; track stat) {
+              <li>{{ stat }}: {{ getStat(stat) }}</li>
+            }
+          </ul>
         </div>
       </div>
     } @else {

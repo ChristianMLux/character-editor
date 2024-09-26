@@ -1,30 +1,59 @@
 .character-preview {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 400px;
-    margin: 0 auto;
-  
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-  
     .preview-container {
       display: flex;
-      align-items: center;
       justify-content: space-around;
+      align-items: flex-start;
     }
   
     .character-image {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
+      width: 200px;
+      height: 300px;
+      position: relative;
+  
+      .head, .body, .arms, .legs {
+        position: absolute;
+      }
+  
+      .head {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        top: 0;
+        left: 75px;
+      }
+  
+      .body {
+        width: 100px;
+        height: 150px;
+        top: 50px;
+        left: 50px;
+      }
+  
+      .arms {
+        width: 140px;
+        height: 20px;
+        top: 70px;
+        left: 30px;
+      }
+  
+      .legs {
+        width: 80px;
+        height: 100px;
+        bottom: 0;
+        left: 60px;
+      }
+  
+      .weapon {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: #ddd;
+        padding: 5px;
+        border-radius: 5px;
+      }
     }
   
     .character-info {
-      p {
-        margin: 10px 0;
-      }
+      text-align: left;
     }
   }
