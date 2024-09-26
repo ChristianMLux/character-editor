@@ -10,7 +10,7 @@
       height: 300px;
       position: relative;
   
-      .head, .body, .arms, .legs {
+      .head, .body, .arm, .legs, .weapon {
         position: absolute;
       }
   
@@ -29,11 +29,21 @@
         left: 50px;
       }
   
-      .arms {
-        width: 140px;
-        height: 20px;
-        top: 70px;
-        left: 30px;
+      .arm {
+        width: 20px;
+        height: 100px;
+        top: 47px;
+        z-index: -1;
+      }
+  
+      .left-arm {
+        left: 24px;
+        transform: rotate(30deg);
+      }
+  
+      .right-arm {
+        right: 24px;
+        transform: rotate(-30deg);
       }
   
       .legs {

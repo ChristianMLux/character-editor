@@ -6,7 +6,8 @@
         <div class="character-image">
           <div class="head" [style.backgroundColor]="character().headColor"></div>
           <div class="body" [style.backgroundColor]="character().bodyColor"></div>
-          <div class="arms" [style.backgroundColor]="character().armsColor"></div>
+          <div class="arm left-arm" [style.backgroundColor]="character().armsColor"></div>
+          <div class="arm right-arm" [style.backgroundColor]="character().armsColor"></div>
           <div class="legs" [style.backgroundColor]="character().legsColor"></div>
           @if (character().weapon) {
             <div class="weapon">{{ character().weapon }}</div>
