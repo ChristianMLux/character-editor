@@ -1,0 +1,20 @@
+# Verwende das bereits geladene Image
+FROM node:18
+
+WORKDIR /app
+
+# Kopiere package.json zuerst für besseres Layer Caching
+COPY package*.json ./
+
+# Installiere Projektabhängigkeiten
+RUN npm install
+
+# Installiere Angular CLI
+RUN npm install -g @angular/cli@latest
+
+# Kopiere den Rest des Projekts
+COPY . .
+
+EXPOSE 4200
+
+CMD ["ng", "serve", "--host", "0.0.0.0", "--disable-host-check"]
